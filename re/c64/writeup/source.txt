@@ -1,0 +1,65 @@
+2 gosub 1000
+4 input b$
+10 gosub 4000
+13 poke 11,tt-47
+
+30 lli = lli + 1
+31 xd = asc(mid$(a$,lli,1))
+35 if xd > 127 then xd = xd - 160
+40 poke 251,xd
+41 poke 252,dk
+50 sys 49152
+51 dk = peek(253)
+52 poke 252,dk
+53 poke 251,peek(11)
+54 sys 49152
+98 print chr$(peek(253));
+99 if peek(6) <= lli then goto 3000
+100 goto 30
+
+1000 print "searching for a secret file on drive 8.."
+1001 open 2,8,2,"secret,s,r"
+1002 input#2,a$
+1003 if st<>0 then print "cannot find a secret file" :close 2 :end
+1004 print "secret file found!"
+1005 print "enter decryption key (8 chars)"
+1006 poke 6,len(a$) :
+1008 lli = 0
+1009 return
+
+
+1500 rem
+1501 poke 250,0
+1505 poke 251,y
+1506 sys 49159
+1510 for x=1 to 6
+1515 z = asc(mid$(b$,x,1))
+1520 poke 251,z
+1530 poke 252,y
+1540 sys 49152
+1546 sys 49159
+1550 y = peek(253)
+1560 next x
+1600 return
+
+2000 rem
+2020 for i=0 to 17
+2030 read a: poke 49152+i,a
+2040 next
+2060 restore
+2070 return
+
+3000 end
+
+4000 rem
+4001 close 2
+4002 if len(b$) <> 8 then print "invalid key length!" : goto 3000
+4018 gosub 2000
+4020 y = asc(mid$(b$,7,1))
+4025 gosub 1500
+4026 dk = peek(250)
+4030 if y <> asc(mid$(b$,8,1)) then print "invalid key!" : goto 3000
+4049 read tt
+4050 return
+
+10000 data 165,251,69,252,133,253,96,6,250,165,251,41,1,5,250,133,250,96

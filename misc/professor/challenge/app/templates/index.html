@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Professor's Report Grader</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/png" href="/static/favicon.ico">
+</head>
+<body>
+  <h1>Submit Your Report</h1>
+  <img id="professor-img" src="/static/professor.png" alt="Professor Pixel Art" />
+  
+  <form id="uploadForm">
+    <input type="file" name="file" accept=".pdf" required>
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <div id="popup" class="hidden">
+    <div id="popup-content">
+      <span id="popup-close">&times;</span>
+      <pre id="popup-message"></pre>
+    </div>
+  </div>
+
+  <div id="loading" class="loading-in-progress">
+    <p>Grading your report...</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const popup = document.getElementById('popup');
+    const message = document.getElementById('popup-message');
+    const close = document.getElementById('popup-close');
+    const professorImg = document.getElementById('professor-img');
+    const loading = document.getElementById('loading');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fileInput = form.querySelector('input[type="file"]');
+      const submitButton = form.querySelector('button');
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+
+      loading.classList.remove('loading-in-progress');
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+  
+      try {
+        const response = await fetch('/submit', {
+          method: 'POST',
+          body: formData
+        });
+  
+        if (response.status === 429) {
+          message.textContent = "You're uploading too fast! Please slow down.";
+          professorImg.src = "/static/professor-angry.png";
+          popup.classList.remove('hidden');
+          return
+        }
+
+        const data = await response.json();
+        let text = "";
+
+  
+        if (data.result === "fail" && data.reason === "OCR mismatch") {
+          text = "Professor doesn't approve your behaviour. Your grade is 2.0.\nFAIL.";
+          professorImg.src = "/static/professor-angry.png";
+        } else if (data.result === "fail" && data.grade < 5.0) {
+          text = `You received ${data.grade} but you need more than this. :( FAIL\n ${data.description}`;
+          professorImg.src = "/static/professor-low-grade.png";
+        } else if (data.result === "success") {
+          text = `I don't know how, but the professor graded you with ${data.grade}.\nHere is your reward:\n${data.flag}\n ${data.description}`;
+          professorImg.src = "/static/professor-flag.png";
+        } else {
+          text = `Something unexpected happened. ${data.description}`;
+          professorImg.src = "/static/professor.png";
+        }
+  
+        message.textContent = text;
+        popup.classList.remove('hidden');
+      } catch (err) {
+        message.textContent = "An error occurred while uploading your file.";
+        professorImg.src = "/static/professor-angry.png";
+        popup.classList.remove('hidden');
+      } finally {
+        loading.classList.add('loading-in-progress');
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Report";
+      }
+    });
+  
+    close.onclick = () => {
+      popup.classList.add('hidden');
+      professorImg.src = "/static/professor.png";
+    };
+  </script>
+</body>
+</html>

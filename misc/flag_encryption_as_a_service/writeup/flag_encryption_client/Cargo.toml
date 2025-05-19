@@ -1,0 +1,12 @@
+[package]
+name = "flag_encryption_client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+reqwest = { version = "0.12.15", features = ["json"] }
+base64 = "0.22.1"
+aes = "0.8.4"
+cbc = "0.1.2"
+tokio = { version = "1.44.2", features = ["rt-multi-thread" , "macros"] }
+serde = { version = "1.0.219", features = ["derive"] }

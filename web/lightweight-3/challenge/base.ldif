@@ -1,0 +1,37 @@
+dn: ou=people,dc=bts,dc=ctf
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=testuser,ou=people,dc=bts,dc=ctf
+objectClass: inetOrgPerson
+cn: Test User
+sn: User
+uid: testuser
+userPassword: mQihFbBoQFS52zenENg8PGLuOQyGjDFN
+employeeType: active
+description: Junior Mid-Senior DevOps Penetration Tester Engineer
+
+dn: ou=prisms,dc=bts,dc=ctf
+objectClass: organizationalUnit
+ou: prisms
+
+dn: cn=SmallPrism,ou=prisms,dc=bts,dc=ctf
+objectClass: prismProduct
+cn: SmallPrism
+description: A small prism. It is very smol UwU
+prismImageURL: /static/small.png
+prismPrice: 9.99
+
+dn: cn=BigPrism,ou=prisms,dc=bts,dc=ctf
+objectClass: prismProduct
+cn: BigPrism
+description: It's massive
+prismImageURL: /static/big.jpg
+prismPrice: 1337.00
+
+dn: cn=PrismorinoCubino,ou=prisms,dc=bts,dc=ctf
+objectClass: prismProduct
+cn: PrismorinoCubino
+description: Un cubo de prismas
+prismImageURL: /static/prismorinocubino.png
+prismPrice: 0.00

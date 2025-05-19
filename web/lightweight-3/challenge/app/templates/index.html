@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="static/tailwind.js"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-lg p-8 max-w-2xl w-full mx-4 transition-all hover:shadow-xl">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="bg-blue-100 p-4 rounded-xl">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Welcome <span class="text-blue-600">{{username}}</span>!</h1>
+                <p class="text-gray-600 mt-1">User Description: {{description}}</p>
+            </div>
+        </div>
+        <div class="ml-auto">
+            <h2>Hello Employee! To assist with your prism sales, feel free to explore our cutting-edge prism database:</h2>
+            <form>
+                <select name="prisms" id="prism-select" class="mt-4 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    <option value="">--Please choose an option--</option>
+                    <option value="BigPrism">Big Prism</option>
+                    <option value="SmallPrism">Small Prism</option>
+                    <option value="PrismorinoCubino">Prismorino Cubino</option>
+                  </select>
+
+                <button onclick="search()" type="button" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Search</button>
+            
+                <div id="results" style="display: none">
+                    <pre id="data" class="mt-4 bg-gray-100 p-4 rounded-lg shadow-md text-gray-800"></pre>
+                    <div id="image-container" class="mt-4">
+                        <img id="image" src="" alt="Prism Image" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        async function search() {
+            const select = document.getElementById('prism-select');
+            const selectedValue = select.value;
+
+            if (selectedValue) {
+                const response = await fetch(`/search?prism=${selectedValue}`);
+                const data = await response.json();
+                
+                const text = data.data;
+                const imageUrl = data.image;
+
+                const resultsDiv = document.getElementById('results');
+                const dataDiv = document.getElementById('data');
+                const image = document.getElementById('image');
+
+                dataDiv.textContent = text;
+                image.src = imageUrl;
+
+                resultsDiv.style.display = 'block';
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Please select a prism.');
+            }
+        }
+    </script>
+</body>
+</html>

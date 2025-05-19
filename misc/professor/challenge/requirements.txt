@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+pdf2image
+openai
+PyMuPDF
+google-generativeai>=0.4.1
+dotenv
+slowapi
+google-cloud-vision

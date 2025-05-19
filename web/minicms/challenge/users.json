@@ -1,0 +1,143 @@
+[
+    {
+        "id": "1",
+        "name": "John",
+        "surname": "Doe",
+        "email": "john.doe@miniature-cms.com",
+        "password": "d6a021954bfa75c3a702d916304fcaa96d9a7af6097af1845cbed4d663c3cc14"
+    },
+    {
+        "id": "2",
+        "name": "Jane",
+        "surname": "Smith",
+        "email": "jane.smith@miniature-cms.com",
+        "password": "a6c714185dce146357e0d3044a1cdf9f817324910f2bd3e01b1d2d1fdad3bf88"
+    },
+    {
+        "id": "3",
+        "name": "Alice",
+        "surname": "Johnson",
+        "email": "alice.johnson@miniature-cms.com",
+        "password": "bbb1294ac3d346d6c05a0b4b45ca44f7be8cceefda92c9e93111b36259914df3"
+    },
+    {
+        "id": "4",
+        "name": "Bob",
+        "surname": "Brown",
+        "email": "bob.brown@miniature-cms.com",
+        "password": "2943bbd23b8d9f49d41e287df58364b1c769aee7af0172411375d1572dc87640"
+    },
+    {
+        "id": "5",
+        "name": "Charlie",
+        "surname": "Davis",
+        "email": "charlie.davis@miniature-cms.com",
+        "password": "9c4022f1d08d08e1184052cf10ea52549b38014696685bfe8f8a47019651dd32"
+    },
+    {
+        "id": "6",
+        "name": "Emily",
+        "surname": "Wilson",
+        "email": "emily.wilson@miniature-cms.com",
+        "password": "1cb597cbad95493d1f8dee11aa8e7bb2229f61e5fa9966bebb1cbd04b188ffb8"
+    },
+    {
+        "id": "7",
+        "name": "Frank",
+        "surname": "Taylor",
+        "email": "frank.taylor@miniature-cms.com",
+        "password": "9d7b58b0d23ee231bbf5785eb1f3ab18d2c4b15621a7f03647810d3e0ec4adaf"
+    },
+    {
+        "id": "8",
+        "name": "Grace",
+        "surname": "Anderson",
+        "email": "grace.anderson@miniature-cms.com",
+        "password": "95f849fa557f780733041f5076961b4c6dc91fea00a411cab82bab995b22a8d9"
+    },
+    {
+        "id": "9",
+        "name": "Henry",
+        "surname": "Thomas",
+        "email": "henry.thomas@miniature-cms.com",
+        "password": "41d17bc28bdccd66f243b0130bd1c17a4c641eb46c4dc32de546afad628885a4"
+    },
+    {
+        "id": "10",
+        "name": "Ivy",
+        "surname": "Moore",
+        "email": "ivy.moore@miniature-cms.com",
+        "password": "086e695657a237511c423bde2f2e648069870f1c54aa9888275a1a87a495cc32"
+    },
+    {
+        "id": "11",
+        "name": "Jack",
+        "surname": "Black",
+        "email": "jack.martin@miniature-cms.com",
+        "password": "881fe24cd4688de154b46e634e7e048d1db92e032b9358502b978379aaf53a0a"
+    },
+    {
+        "id": "12",
+        "name": "Karen",
+        "surname": "Lee",
+        "email": "karen.lee@miniature-cms.com",
+        "password": "c8c75ddf3f92353312793e6e3eafe7bccff409c85ec3af208eb17efa1cd1a54e"
+
+    },
+    {
+        "id": "13",
+        "name": "Leo",
+        "surname": "White",
+        "email": "leo.white@miniature-cms.com",
+        "password": "0e15912394876120948217340912387412309482137409128742039484444444"
+    },
+    {
+        "id": "14",
+        "name": "Mia",
+        "surname": "Harris",
+        "email": "mia.harris@miniature-cms.com",
+        "password": "d5f91c1d100dbf3f38d3f6d4f1d3c9f649feb0cec36423248dbb9a83d1e1822d"
+    },
+    {
+        "id": "15",
+        "name": "Nathan",
+        "surname": "Clark",
+        "email": "nathan.clark@miniature-cms.com",
+        "password": "6a219023332f535d8316b6c3fe086285a87218428c5f7c36fcb97b93aebc69ac"
+    },
+    {
+        "id": "16",
+        "name": "Olivia",
+        "surname": "Lewis",
+        "email": "olivia.lewis@miniature-cms.com",
+        "password": "7e3207340b34eeaa29fd00e72a403cba44377ef372c8c463868925d1795dd754"
+    },
+    {
+        "id": "17",
+        "name": "Paul",
+        "surname": "Walker",
+        "email": "paul.walker@miniature-cms.com",
+        "password": "e1f4274e3a78b196f38ba206b0af6bc7806e3e3b0a4d6971739ab8f619b53af6"
+    },
+    {
+        "id": "18",
+        "name": "Quinn",
+        "surname": "Hall",
+        "email": "quinn.hall@miniature-cms.com",
+        "password": "7285096f46f07f0ec8d2cd07a67f7f8eba88e0daa686eff6721b8cc1a3a72461"
+    },
+    {
+        "id": "19",
+        "name": "Rachel",
+        "surname": "Allen",
+        "email": "rachel.allen@miniature-cms.com",
+        "password": "00589f932b78afad32ae6a5619c64f4fab7c77cc2730ae4444167111c77b6fe1"
+    },
+    {
+        "id": "20",
+        "name": "Steve",
+        "surname": "Young",
+        "email": "steve.young@miniature-cms.com",
+        "password": "2ffc9a7b0ed0d8ecc2cc96e8c1cc001c7eda8554a68e562a2dac00b9b73cf9b8"
+    }
+]

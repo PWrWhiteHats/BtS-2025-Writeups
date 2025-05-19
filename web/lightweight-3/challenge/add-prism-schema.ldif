@@ -1,0 +1,21 @@
+dn: cn=prism-schema,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: prism-schema
+olcAttributeTypes: {0}( 1.3.6.1.4.1.99999.1.1.1
+  NAME 'prismPrice'
+  DESC 'Price of prism in USD'
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.44
+  SINGLE-VALUE )
+olcAttributeTypes: {1}( 1.3.6.1.4.1.99999.1.1.2
+  NAME 'prismImageURL'
+  DESC 'URL to prism image'
+  EQUALITY caseIgnoreMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+olcObjectClasses: {0}( 1.3.6.1.4.1.99999.1.2.1
+  NAME 'prismProduct'
+  DESC 'Product entry for prisms'
+  SUP top
+  STRUCTURAL
+  MUST ( cn $ prismPrice )
+  MAY ( description $ prismImageURL ) )
